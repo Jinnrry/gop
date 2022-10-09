@@ -21,7 +21,7 @@ func TestF(t *testing.T) {
 		make(chan string, 3),
 		func(string) int { return 10 },
 		map[interface{}]interface{}{
-			"test": 10,
+			`test`: 10,
 			"a":    1,
 		},
 		unsafe.Pointer(&ref),
@@ -125,7 +125,12 @@ func TestF(t *testing.T) {
 
 func TestPrintWithColor(t *testing.T) {
 
-	data := "asdfasdf"
+	data := `asdf
+ddd
+aaa
+
+dddd
+`
 
 	PrintWithColor(Red, data)
 }

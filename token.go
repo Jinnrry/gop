@@ -292,7 +292,7 @@ func tokenize(sn seen, p path, v reflect.Value) []*Token {
 
 	case reflect.String:
 		t.Type = String
-		t.Literal = fmt.Sprintf("%#v", v.Interface())
+		t.Literal = fmt.Sprintf("`%v`", v.Interface())
 		ts = append(ts, t)
 		if regNewline.MatchString(v.Interface().(string)) {
 			ts = append(ts, &Token{Len, fmt.Sprintf("/* len=%d */", v.Len())})

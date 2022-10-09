@@ -125,12 +125,14 @@ func oneOf(t Type, list ...Type) bool {
 //     "line one \n" +
 //     "	 line two"
 func readableStr(depth int, s string) string {
-	s, _ = replaceEscaped(s, '\t', "	")
+	//s, _ = replaceEscaped(s, '\t', "	")
+	//
+	//indent := strings.Repeat(indentUnit, depth+1)
+	//if n, has := replaceEscaped(s, 'n', "\\n\" +\n"+indent+"\""); has {
+	//	return "\"\" +\n" + indent + n
+	//}
 
-	indent := strings.Repeat(indentUnit, depth+1)
-	if n, has := replaceEscaped(s, 'n', "\\n\" +\n"+indent+"\""); has {
-		return "\"\" +\n" + indent + n
-	}
+	//s = strings.ReplaceAll(s, "\\n", "\n")
 
 	return s
 }

@@ -38,8 +38,12 @@ func ColorStr(c Color, s string) string {
 	if c == None || !SupportsColor {
 		return s
 	}
+	line := strings.Split(s, "\n")
+	for i := 0; i < len(line); i++ {
+		line[i] = fmt.Sprintf("\x1b[%dm%s\x1b[0m", c, line[i])
+	}
 
-	return fmt.Sprintf("\x1b[%dm%s\x1b[0m", c, s)
+	return strings.Join(line, "\n")
 }
 
 // SupportsColor returns true if current shell supports ANSI color
