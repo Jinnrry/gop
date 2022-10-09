@@ -54,6 +54,17 @@ func Print(vs ...interface{}) {
 	_, _ = fmt.Fprintln(stdout, list...)
 }
 
+// PrintWithColor 输出带颜色的文字
+func PrintWithColor(theme Color, vs ...interface{}) {
+	list := []interface{}{}
+	for _, v := range vs {
+		list = append(list, format(Tokenize(v), func(t Type) Color {
+			return theme
+		}))
+	}
+	_, _ = fmt.Fprintln(stdout, list...)
+}
+
 // Sprint /* Sprint is a shortcut for format with plain color
 func Sprint(v interface{}) string {
 	return format(Tokenize(v), noTheme)

@@ -122,3 +122,10 @@ func TestF(t *testing.T) {
 
 	Print(v)
 }
+
+func TestPrintWithColor(t *testing.T) {
+
+	data := "asdfasdf"
+
+	PrintWithColor(Red, data)
+}
